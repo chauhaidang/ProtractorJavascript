@@ -1,0 +1,32 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "hybrid testing framework using javascript",
+  "main": "index.js",
+  "scripts": {
+    "pro": "protractor",
+    "pro:version": "protractor --version",
+    "jas": "jasmine",
+    "driver": "webdriver-manager",
+    "driver:update": "webdriver-manager update --chrome --versions.chrome 2.46",
+    "driver:start": "webdriver-manager start --versions.chrome 2.46",
+    "test": "protractor conf.js",
+    "syntax": "jshint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chauhaidang/ProtractorJavascript.git"
+  },
+  "author": "Dang Chau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chauhaidang/ProtractorJavascript/issues"
+  },
+  "homepage": "https://github.com/chauhaidang/ProtractorJavascript#readme",
+  "dependencies": {
+    "protractor": "^5.4.2"
+  },
+  "devDependencies": {
+    "jshint": "^2.10.2"
+  }
+}
