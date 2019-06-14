@@ -13,6 +13,7 @@
         "protractor": false,
         "element": false,
         "by": false,
-        "browser": false
+        "browser": false,
+        "console":false
     }
 }
