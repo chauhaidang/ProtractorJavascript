@@ -5,14 +5,22 @@ exports.config = {
         defaultTimeoutInterval: 30000,
     },
     
-    specs: ['spec/howPromiseWork.js'],
+    specs: ['spec/test_matcher.js'],
+
+    suites: {
+      smoke: ['./smoke/*.js'],
+      functional: ['./functional/*.js'],
+      regression: ['./regression/*.js'],
+      all: ['./*/*.js']
+    },
 
     directConnect: true,
     
     capabilities: {
       browserName: 'chrome',
+
       chromeOptions: {
-        args: ['--headless']
+        //args: ['--headless']
       },
     },
   };
