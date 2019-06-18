@@ -4,7 +4,7 @@ exports.config = {
     jasmineNoteOpts:{
         defaultTimeoutInterval: 30000,
     },
-    specs: ['spec/wrapper_usage.js'],
+    specs: ['spec/non_angular_page.js'],
     suites: {
       smoke: ['./smoke/*.js'],
       functional: ['./functional/*.js'],
@@ -21,7 +21,11 @@ exports.config = {
       // }
       browserName: 'chrome',
       chromeOptions: {
-        args: ['--headless']
+        //args: ['--headless']
       },
     },
+
+    onPrepare: () => {
+      browser.driver.manage().timeouts().implicitlyWait(5000);
+    }
   };

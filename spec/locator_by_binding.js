@@ -9,6 +9,5 @@ describe('Locator by ng binding', () => {
             console.log(text);
         });
         browser.sleep(2000);
-
     });
 });
