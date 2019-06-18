@@ -4,7 +4,7 @@ exports.config = {
     jasmineNoteOpts:{
         defaultTimeoutInterval: 30000,
     },
-    specs: ['spec/non_angular_page.js'],
+    specs: ['spec/iframe.js'],
     suites: {
       smoke: ['./smoke/*.js'],
       functional: ['./functional/*.js'],
