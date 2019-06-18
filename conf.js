@@ -5,14 +5,17 @@ exports.config = {
         defaultTimeoutInterval: 30000,
     },
     
-    specs: ['spec/howPromiseWork.js'],
+    specs: ['spec/wrapper_usage.js'],
 
     directConnect: true,
     
     capabilities: {
-      browserName: 'chrome',
-      chromeOptions: {
-        args: ['--headless']
-      },
+      browserName: 'firefox',
+      // chromeOptions: {
+      //   args: ['--headless']
+      // },
+      'moz:firefoxOptions': {
+        args: ['--headless', '--safe-mode']
+      }
     },
   };
