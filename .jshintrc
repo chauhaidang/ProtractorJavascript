@@ -4,7 +4,7 @@
     "esversion": 8,
     "nocomma": true,
     "strict": "implied",
-    "trailingcomma": true,
+    "trailingcomma": false,
     "undef": true,
     "unused": true,
     "eqnull": true,
@@ -14,6 +14,9 @@
         "element": false,
         "by": false,
         "browser": false,
-        "console":false
+        "console":false,
+        "__dirname":false,
+        "require":false,
+        "exports":false
     }
 }
