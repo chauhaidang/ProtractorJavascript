@@ -9,7 +9,7 @@ describe('Name of the group', () => {
         browser.sleep(3000);
         alert.accept();
         browser.sleep(3000);
-
+        
         element(by.xpath('//*[@id="login1"]')).sendKeys('asasdad');//Must handle alert before this statement
         
     });
