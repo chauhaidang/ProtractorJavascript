@@ -4,7 +4,7 @@ exports.config = {
     jasmineNoteOpts:{
         defaultTimeoutInterval: 30000,
     },
-    specs: ['spec/iframe.js'],
+    specs: ['spec/handle_alert.js'],
     suites: {
       smoke: ['./smoke/*.js'],
       functional: ['./functional/*.js'],
