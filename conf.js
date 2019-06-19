@@ -3,6 +3,7 @@ let dateformat = require('dateformat');
 let fs2 = require('fs-extra');
 let HTMLReport = require('protractor-html-reporter-2');
 let jasmineReporters = require('jasmine-reporters');
+let HTMLReport2 = require('protractor-beautiful-reporter');
 let path = require('path');
 
 const _ReportDir = 'report/';
@@ -15,7 +16,7 @@ exports.config = {
     defaultTimeoutInterval: 30000,
   },
 
-  specs: ['./training/protractor_tut/sample_log.js'],
+  specs: ['./training/protractor_tut/sample_log.js','./training/protractor_tut/jasmine_basic.js'],
   suites: {
     smoke: ['./suite/smoke/*.js'],
     functional: ['./suite/functional/*.js'],
@@ -34,6 +35,7 @@ exports.config = {
     chromeOptions: {
       args: ['--headless']
     },
+    shardTestFiles: true,
   },
 
   getPageTimeout: 10000,
@@ -51,6 +53,10 @@ exports.config = {
     });
   },
 
+  afterLaunch: () => {
+
+  },
+
   onPrepare: () => {
     browser.manage().window().maximize();
     browser.driver.manage().timeouts().implicitlyWait(60000);//This apply for non-angular page and wait for statement to be timeout implicitly
@@ -63,38 +69,47 @@ exports.config = {
         filename: `${__dirname}/${_ReportDir}${reportNameSpace}_ExecutionLog.log`,
       })
     );
+    
+    //For protractor html 2 reporter
+    // jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+    //   consolidateAll: true,
+    //   savePath: `${_ReportDir}`,
+    //   filePrefix: `${reportNameSpace}_xmloutput`
+    // }));
 
-    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
-      consolidateAll: true,
-      savePath: `${_ReportDir}`,
-      filePrefix: `${reportNameSpace}_xmloutput`
-    }));
+    //Protractor beatiful reporter
+    jasmine.getEnv().addReporter(new HTMLReport2({
+      baseDirectory: `${_ReportDir}`,
+      docTitle: 'dang test',
+      screenshotsSubfolder: 'images'
+    }).getJasmine2Reporter());
 
     browser.logger = logger;
     browser.timeouts = 5000;
   },
 
   onComplete: () => {
-    let browserName, browserVersion;
-    let capsPromise = browser.getCapabilities();
+    //For protractor html reporter 2
+    // let browserName, browserVersion;
+    // let capsPromise = browser.getCapabilities();
 
-    capsPromise.then(function (caps) {
-      browserName = caps.get('browserName');
-      browserVersion = caps.get('version');
-      let platform = caps.get('platform');
-      let testConfig = {
-        reportTitle: 'Protractor Test Execution Report',
-        outputPath: `${_ReportDir}`,
-        outputFilename: `${reportNameSpace}_ProtractorTestReport`,
-        screenshotPath: `${_ReportDir}screenshots`,
-        testBrowser: browserName,
-        browserVersion: browserVersion,
-        modifiedSuiteName: true,
-        screenshotsOnlyOnFailure: false,
-        testPlatform: platform,
-        consolidateAll: true,
-      };
-      new HTMLReport().from(`${_ReportDir}${reportNameSpace}xmloutput.xml`, testConfig);
-    });
+    // capsPromise.then(function (caps) {
+    //   browserName = caps.get('browserName');
+    //   browserVersion = caps.get('version');
+    //   let platform = caps.get('platform');
+    //   let testConfig = {
+    //     reportTitle: 'Protractor Test Execution Report',
+    //     outputPath: `${_ReportDir}`,
+    //     outputFilename: `${reportNameSpace}_ProtractorTestReport`,
+    //     screenshotPath: `${_ReportDir}screenshots`,
+    //     testBrowser: browserName,
+    //     browserVersion: browserVersion,
+    //     modifiedSuiteName: true,
+    //     screenshotsOnlyOnFailure: false,
+    //     testPlatform: platform,
+    //     consolidateAll: true,
+    //   };
+    //   new HTMLReport().from(`${_ReportDir}${reportNameSpace}xmloutput.xml`, testConfig);
+    // });
   }
 };

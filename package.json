@@ -35,6 +35,7 @@
   "devDependencies": {
     "jasmine-reporters": "^2.3.2",
     "jshint": "^2.10.2",
+    "protractor-beautiful-reporter": "^1.2.8",
     "protractor-html-reporter-2": "^1.0.4"
   }
 }
