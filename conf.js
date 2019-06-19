@@ -16,7 +16,7 @@ exports.config = {
     defaultTimeoutInterval: 30000,
   },
 
-  specs: ['./training/protractor_tut/sample_log.js','./training/protractor_tut/jasmine_basic.js'],
+  specs: ['./training/protractor_tut/sample_log.js', './training/protractor_tut/jasmine_basic.js'],
   suites: {
     smoke: ['./suite/smoke/*.js'],
     functional: ['./suite/functional/*.js'],
@@ -60,7 +60,7 @@ exports.config = {
   onPrepare: () => {
     browser.manage().window().maximize();
     browser.driver.manage().timeouts().implicitlyWait(60000);//This apply for non-angular page and wait for statement to be timeout implicitly
-
+    
     let date = new Date();
     reportNameSpace = dateformat(date, 'dddd_mmmm_dS_yyyy_HH_MM_ss');
 
@@ -69,7 +69,7 @@ exports.config = {
         filename: `${__dirname}/${_ReportDir}${reportNameSpace}_ExecutionLog.log`,
       })
     );
-    
+
     //For protractor html 2 reporter
     // jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
     //   consolidateAll: true,
@@ -80,8 +80,15 @@ exports.config = {
     //Protractor beatiful reporter
     jasmine.getEnv().addReporter(new HTMLReport2({
       baseDirectory: `${_ReportDir}`,
-      docTitle: 'dang test',
-      screenshotsSubfolder: 'images'
+      docTitle: 'PROTRACTOR REPORT',
+      screenshotsSubfolder: 'images',
+      takeScreenShotsOnlyForFailedSpecs: true,
+      clientDefaults: {
+        columnSettings: {
+          warningTime: 5000,
+          dangerTime: 10000
+        }
+      }
     }).getJasmine2Reporter());
 
     browser.logger = logger;
