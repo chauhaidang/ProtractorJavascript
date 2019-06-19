@@ -62,3 +62,6 @@ typings/
 
 #visual studio code
 .vscode
+
+#Report
+report/
