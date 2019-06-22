@@ -47,6 +47,7 @@ exports.config = {
   SELENIUM_PROMISE_MANAGER: true,
 
   beforeLaunch: () => {
+    require('@babel/register');
     //clean up report dir
     fs2.emptyDir(_ReportDir).then(() => {
       console.log('success clean up report folder before run tests!');
@@ -60,6 +61,7 @@ exports.config = {
   },
 
   onPrepare: () => {
+    
     browser.manage().window().maximize();
     browser.driver.manage().timeouts().implicitlyWait(60000);//This apply for non-angular page and wait for statement to be timeout implicitly
   
