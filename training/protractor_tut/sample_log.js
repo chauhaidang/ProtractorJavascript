@@ -1,13 +1,16 @@
 import {logger} from './../../util/LogSupport';
 import {Page} from './../../pageobject/sample';
+import * as WebdriverSupport from './../../util/WebdriverSupport';
 
 //let log = LogSupport.logger;
 describe('angularjs homepage todo list', () => {
     it('should1', async function () {
-        browser.get('https://angularjs.org');
+        WebdriverSupport.navigateTo('https://angularjs.org');
+        //browser.get('https://angularjs.org');
         logger.info("asdads");
         let page = new Page();
         page.logout();
+        
         element(by.model('todoList.todoText')).sendKeys('write first protractor test');
         element(by.css('[value="add"]')).click();
         var todoList = element.all(by.repeater('todo in todoList.todos'));
