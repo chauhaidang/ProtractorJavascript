@@ -17,7 +17,7 @@ exports.config = {
     defaultTimeoutInterval: 30000,
   },
 
-  specs: ['./training/protractor_tut/sample_log.js', './training/protractor_tut/jasmine_basic.js'],
+  specs: ['./training/protractor_tut/sample_log.js'],
   suites: {
     smoke: ['./suite/smoke/*.js'],
     functional: ['./suite/functional/*.js'],
