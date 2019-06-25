@@ -1,0 +1,8 @@
+{
+    "testsiteurl": "https://angularjs.org/",
+    "locator": {
+        "btnLearn": "//a[text()='Learn']",
+        "btnDevelop": "//a[text()='Develop']",
+        "btnDiscuss": "//a[text()='Discuss']"
+    }
+}

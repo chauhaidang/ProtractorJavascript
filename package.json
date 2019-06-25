@@ -14,6 +14,8 @@
     "driver:update": "webdriver-manager update --chrome --versions.chrome 2.46",
     "driver:start": "webdriver-manager start --versions.chrome 2.46",
     "test": "protractor conf.js",
+    "test:firefox": "protractor conf.js --browser=firefox",
+    "test:chrome": "protractor conf.js --browser=chrome",
     "smoke": "protractor conf.js --suite=smoke",
     "regression": "protractor conf.js --suite=regression",
     "functional": "protractor conf.js --suite=functional",
@@ -42,8 +44,8 @@
     "@babel/register": "^7.4.4",
     "jasmine-console-reporter": "^3.1.0",
     "jasmine-reporters": "^2.3.2",
-    "jshint": "^2.10.2",
     "protractor-beautiful-reporter": "^1.2.8",
-    "protractor-html-reporter-2": "^1.0.4"
+    "protractor-html-reporter-2": "^1.0.4",
+    "jshint": "^2.10.2"
   }
 }

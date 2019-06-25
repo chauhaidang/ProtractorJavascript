@@ -17,7 +17,7 @@ exports.config = {
     defaultTimeoutInterval: 30000,
   },
 
-  specs: ['./training/protractor_tut/sample_log.js'],
+  specs: ['./training/protractor_tut/readJsonSpec.js'],
   suites: {
     smoke: ['./suite/smoke/*.js'],
     functional: ['./suite/functional/*.js'],
@@ -29,13 +29,15 @@ exports.config = {
 
   capabilities: {
     // browserName: 'firefox',
-    // 'moz:firefoxOptions': {
-    //   args: ['--headless', '--safe-mode']
-    // }
-    browserName: 'chrome',
+    // browserName: 'chrome',
+    'moz:firefoxOptions': {
+      args: ['--headless', '--safe-mode']
+    },
+
     chromeOptions: {
       args: ['--headless']
     },
+
     shardTestFiles: true,
   },
 
