@@ -17,7 +17,7 @@ exports.config = {
     defaultTimeoutInterval: 30000,
   },
 
-  specs: ['./training/protractor_tut/readJsonSpec.js'],
+  specs: ['./training/protractor_tut/dataprovider.js'],
   suites: {
     smoke: ['./suite/smoke/*.js'],
     functional: ['./suite/functional/*.js'],

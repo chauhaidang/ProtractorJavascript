@@ -4,5 +4,10 @@
         "btnLearn": "//a[text()='Learn']",
         "btnDevelop": "//a[text()='Develop']",
         "btnDiscuss": "//a[text()='Discuss']"
-    }
+    },
+    "arrText":[
+        {"text": "asdasdad"},
+        {"text": "ABC"},
+        {"text": "ALON MUST"}
+    ]
 }
