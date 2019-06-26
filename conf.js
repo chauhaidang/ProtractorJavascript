@@ -82,8 +82,10 @@ exports.config = {
       colors: true,
       cleanStack: true,
       verbosity: true,
-      listStyle: 'flat', // "flat"|"indent"
-      activity: false,
+      listStyle: 'indent', // "flat"|"indent"
+      activity: true,
+      timeUnit: 's',
+      timeThreshold: {ok: 60000, warn: 120000, ouch: 360000}
     }));
 
     //For protractor html 2 reporter
