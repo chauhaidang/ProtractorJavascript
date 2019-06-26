@@ -1,3 +1,4 @@
+require('@babel/register');
 let { logger, transports } = require('./util/LogSupport');
 let dateformat = require('dateformat');
 let fs2 = require('fs-extra');
@@ -28,7 +29,7 @@ exports.config = {
   directConnect: true,
 
   capabilities: {
-    // browserName: 'firefox',
+    //browserName: 'firefox', 
     // browserName: 'chrome',
     'moz:firefoxOptions': {
       args: ['--headless', '--safe-mode']
@@ -49,7 +50,7 @@ exports.config = {
   SELENIUM_PROMISE_MANAGER: true,
 
   beforeLaunch: () => {
-    require('@babel/register');
+  
     //clean up report dir
     fs2.emptyDir(_ReportDir).then(() => {
       console.log('success clean up report folder before run tests!');
