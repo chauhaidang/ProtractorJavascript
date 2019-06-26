@@ -92,8 +92,33 @@ clickElementPresent = async (element) => {
         await browser.logger.error(`Can not click to element due to => ${e}`);
         throw new Error(`Can not click to element due to => ${e}`);
     }
-}
+},
 
+SelectWrapper = class{
+    constructor(selector){
+        this.webElement = element(selector);
+    }
+
+    getOptions(){
+        return this.webElement.all(by.tagName('option'));
+    }
+
+    getSelectedOptions(){
+        return this.webElement.all(by.css('option[selected="selected"]'));
+    }
+
+    selectByValue(value){
+        return this.webElement.all(by.css(`option[value="${value}"]`)).click();
+    }
+
+    selectByPartialText(text){
+        return this.webElement.all(by.cssContainingText('option', text)).click();
+    }
+
+    selectByText(text){
+        return this.webElement.all(by.xpath(`option[.="${text}"]`)).click();
+    }
+};
 
 
 

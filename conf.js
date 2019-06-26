@@ -18,7 +18,7 @@ exports.config = {
     defaultTimeoutInterval: 30000,
   },
 
-  specs: ['./training/protractor_tut/dataprovider.js'],
+  specs: ['./suite/functional/BankManagerLogin.js'],
   suites: {
     smoke: ['./suite/smoke/*.js'],
     functional: ['./suite/functional/*.js'],
